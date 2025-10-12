@@ -1,15 +1,15 @@
 import './App.css'
 import Button from './components/Button'
+import Login from './components/Login'
+import LoginClass from './components/LoginClass'
+import Todos from './components/Todos'
 
 function App() {
 
   return (
     <>
-    <h1>Hello Brother</h1>
-    <p className='mt-4'>This is Musfir & I'm a full stack developer</p>
-    <Button/>
-    <Button text='Book a call now'/>
-    <Button text='Sign up'></Button>
+<LoginClass></LoginClass>
+<Todos></Todos>
     </>
   )
 }
