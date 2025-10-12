@@ -1,14 +1,17 @@
 import './App.css'
-import Button from './components/Button'
-import Login from './components/Login'
 import LoginClass from './components/LoginClass'
 import Todos from './components/Todos'
+import Welcome from './components/Welcome'
 
 function App() {
 
   return (
     <>
-<LoginClass></LoginClass>
+    {/* user={{uname: 'Musfir', type: 'Admin'}} */}
+    <Welcome user={{uname: "Musfir", type: ''}} ></Welcome>
+
+    <div className='m-10' ></div>
+{/* <LoginClass></LoginClass> */}
 <Todos></Todos>
     </>
   )
