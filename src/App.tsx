@@ -1,18 +1,18 @@
+import { useState } from 'react'
 import './App.css'
-import LoginClass from './components/LoginClass'
-import Todos from './components/Todos'
-import Welcome from './components/Welcome'
+import Counter from './components/Counter'
+import PostPage from './PostPage'
 
 function App() {
-
+  const[showCounter, setShowCounter]=useState(true)
   return (
     <>
-    {/* user={{uname: 'Musfir', type: 'Admin'}} */}
-    <Welcome user={{uname: "Musfir", type: ''}} ></Welcome>
-
-    <div className='m-10' ></div>
-{/* <LoginClass></LoginClass> */}
-<Todos></Todos>
+    {showCounter && <Counter></Counter>}
+    <button onClick={()=>{
+      setShowCounter(show => !show)
+    }}>Close the Counter</button>
+    <PostPage></PostPage>
+    
     </>
   )
 }
