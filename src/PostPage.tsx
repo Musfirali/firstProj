@@ -16,6 +16,7 @@ const PostPage= ()=>{
         getPosts()
     }, [])
 
+
 const getPosts = async()=>{
 
     const resp = await fetch("https://jsonplaceholder.typicode.com/posts")

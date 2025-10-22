@@ -1,51 +1,28 @@
-import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
 
 const Counter = () => {
-  // let counterValue = 10;
-  const [counterValue, setCounterValue] = useState(10);
-  const [isRunning, setisRunning] = useState(true);
-  var [timer, setTimer]=useState(0)
+  let counterValue = 10;
 
   const increment = () => {
-    if(isRunning==true){
-  timer = setInterval(()=>{
-      setCounterValue(prevCounterVal =>{
-        const newCounterVal = prevCounterVal+2
-        console.log(counterValue)
-        return newCounterVal;
-      } );
-    
-    }, 100)
-  }
-  return timer;
+    counterValue++;
   } 
   
-  useEffect(()=>{
-   const newtime = increment();
-    setTimer(newtime)
-
-   return()=>{
-    clearInterval(timer)
-   }
-}, [])
-
   const decrement = () => {
-    setCounterValue(counterValue - 1);
+    counterValue--;
+
   }
   const reset = () => {
-    setisRunning(false)
-    clearInterval(timer)
-    setCounterValue(timer);
+    counterValue = 0
   }
   return <section className="mb-10 flex flex-col">
     <h2 className="text-2xl">Count is</h2>
     <p className="text-xl">{counterValue}</p>
     <div className="flex gap-4 mb-4 justify-center">
-      <button onClick={decrement}>- Decrement</button>
-      <button onClick={increment}>+ Increment</button>
+      <Button onClick={decrement}>- Decrement</Button>
+      <Button onClick={increment}>+ Increment</Button>
     </div>
     <div className="flex justify-center">
-      <button onClick={reset}>Reset</button>
+      <Button onClick={reset}>Reset</Button>
     </div>
   </section>
 }

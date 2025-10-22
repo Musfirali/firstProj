@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TodoItem from "./TodoItem";
 
 const Todos = () => {
   const [todos, setTodos] = useState([
@@ -14,19 +15,43 @@ const Todos = () => {
       text: "todo 3",
       id: 3,
     },
+    {
+      text: "todo 4",
+      id: 4,
+    },
+    {
+      text: "todo 5",
+      id: 5,
+    },
+    {
+      text: "todo 6",
+      id: 6,
+    },
   ]);
-  const deleteItem = (id: number) => {
-   const t = todos.filter(todo => todo.id != id);
-    setTodos(t);
-  }
+  const deleteItem = (itemId: number) => {
+    setTodos(todos.filter(todoEl => todoEl.id != itemId))
+  };
+
+  const addNewTodo = () => {
+    setTodos([
+      {
+        id: 12,
+        text: 'musfir' 
+      },
+       ...todos,
+
+    ],);
+  };
+
   return (
     <ul>
+      <li>
+        <button onClick={addNewTodo}>Click me to add new todo</button>
+      </li>
       {todos.map((todoItem) => {
-        return <li onClick={()=>{
-          deleteItem(todoItem.id);
-        }} key={todoItem.id}>
-          {todoItem.text}
-        </li>
+        return (
+          <TodoItem key={todoItem.id} item={todoItem} onDelete={deleteItem} />
+        );
       })}
     </ul>
   );
